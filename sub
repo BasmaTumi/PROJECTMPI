@@ -1,0 +1,12 @@
+#!/bin/bash
+#$ -pe mpi 32   # request 32 slots (MPI processes)
+#$ -q math-colibri # the queue to submit to
+#$ -cwd             # start in current working directory
+#$ -j y                # join the standard output and the error output to a single file
+#$ -S /bin/bash # use bash shell
+# to limit run time, you can add line like this: #$ -l h_rt=hours:minutes:seconds
+# list environment and nodes to help diagnose problems
+# run mpi job
+mpirun -np $NSLOTS $PWD/a.out
+
+
